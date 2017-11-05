@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>TheaterVR</title>
     <meta name="description" content="360&deg; Image - A-Frame">
+    <meta name="apple-mobile-web-app-capable" />
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
 
   </head>
@@ -13,7 +14,7 @@
 
       <a-assets>
         <a-asset-item id="object" src="cinemahall.obj"></a-asset-item>
-        <video id="video" src="nat.MP4" autoplay loop="true">
+        <video id="video" src="nat.MP4" autoplay loop="true" webkit-playsinline>
         <a-asset-item id="material" src="cinemahall.mtl"></a-asset-item>
       </a-assets>
       
