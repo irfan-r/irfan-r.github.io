@@ -10,7 +10,14 @@
   </head>
   <body>
    <a-scene>
-  <a-box color="red" position="0 2 -5" rotation="0 45 45" scale="2 2 2"></a-box>
+  <a-box color="red" position="0 2 -5" rotation="0 45 45" scale="2 2 2"><
+    
+     <a-animation attribute="rotation"
+               dur="10000"
+               fill="forwards"
+               to="0 360 0"
+               repeat="indefinite"></a-animation>
+    /a-box>
 </a-scene>
        
   </body>
