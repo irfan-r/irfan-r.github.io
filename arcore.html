@@ -1,1 +1,258 @@
-<h1>ARCore</h1>
+<!doctype html>
+<html>
+<head>
+<title>R.IRFAN</title>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+ 
+</head>
+
+
+<style>
+	body{
+		font:15px/1.5 Arial, Helvetica, sans-serif;
+		margin:0px;
+		padding:0px;
+		font-family: Open Sans;
+		font-style: oblique;
+		font-size: 1.3em;
+		background-color: #f2f2f2;
+	}
+	#wrap{
+		width:100%;
+	}
+	#head{
+		color:#ffffff;
+		text-align:center;
+		min-height: 20%;
+		margin-bottom:2%;
+		box-shadow:0px 5px 10px rgb(110,110,110);
+		padding:1%;
+		background-color:#1a8cff;
+	}
+	#logo img{
+		align:center;
+		width:20%;
+		height:5%;
+	}
+	#main{
+		overflow:hidden;
+	}
+	#nav{
+		margin-top:10px;
+		margin-bottom:5px;
+		}
+	#nav a{
+		font-weight:bold;
+		text-decoration:none;
+		color:white;
+		text-transform:uppercase;
+		font-size:12px;
+		text-shadow:0px 0px 3px #23ce8d;
+	}
+	#nav ul{
+		text-align:center;
+		margin:0px;
+		padding:0px;
+	}
+    h1{
+        text-align: center;
+        text
+    }
+	#nav li{
+		text-align:center;
+		float:center;;
+		display:inline;
+		padding:3px 20px 3px 20px;
+		margin-left:1%;
+		margin-right:1%;
+		width:10%;
+		}
+	#nav li:hover{
+		box-shadow:0px 0px 10px black;
+	}
+	#head h1{
+		margin:0px;
+	}
+	#main{
+	
+	}
+	.project:hover{
+		text-shadow:0px 0px 3px white;
+	}
+	iframe{
+		width:60%;
+		height:45%;
+	}
+	.project{
+		text-align:justify;
+		width:80%;
+		height:30%;
+		margin-bottom:2%;
+		margin-left:10%; 
+		box-shadow:1px 3px 10px rgb(110,110,110	);
+		padding:2%;
+		float:left;
+		background: white;
+		color:black;
+        font-family :open sans;
+        font-style:normal;
+		font-size: 1.0em;
+	}
+    
+    article {
+        font-family :open sans;
+        padding:2%;
+        border:2px solid black;
+    }
+    
+    h3{
+        text-align:center;
+    }
+    
+	.proj_img{
+		width:50%;
+		height:300px;
+		border:.5px solid gray;
+		margin:1% 0 2% 0; 
+	}
+	.arvideos{
+		border:1px solid gray;
+		padding:1%;
+		margin-bottom:2%;
+	}
+	.arvideos p{
+		text-align: justify;
+	}
+	
+	#footer{
+		width:100%;
+		border-top:2px solid skyblue;
+		color:white;
+		text-align:center;
+		background:rgba(0, 204, 255,1);
+	}
+	</style>
+
+</head>
+<body>
+
+<div id="wrap">
+
+<div id="head">
+<div id="logo">
+	<h1>R IRFAN</h1>
+</div>
+</div>
+
+
+<div id="main">
+    <div class="project">
+        
+        <article>
+        
+        <h1>ARCore for any rooted Android device</h1>
+
+        <img src="arcore.jpg" height="80%" width="70%" style="margin-left:15%;">
+        <p>ARCore is an Augmented Reality SDK developed by google for Android smartphones. ARCore V1.0 is officially released by google. It is supported by only 13 high end android smartphone models. </p>
+            <h4>How to install and run ARCore?</h4>
+    
+<p>
+Before you proceed, your device must be rooted, running on Android 7.0 or Higher, need a root file explorer, Buildprop Editor or a text editor.  
+        </p>
+<p>        
+We are going to modify the build.prop file so that the device can be recognized as a PIxel XL. If camera2 API is not enabled we add a new system property to enable it. Then place a calibration_cad.xml file in the /system/etc/ folder. Calibration_cad.xml file consist camera configurations, that are used by ARCore app.
+        </p>
+<p>
+        Tested on Xiaomi Redmi Note 4 MIUI based on Android 7.0 Nougat stock rom and Pixel Experiance Android 8.1 Oreo Custom rom.  </p>
+<p>
+Before starting any modifications to system files please take a backup, if any thing goes wrong(though it doesnot), then it will be helpfull.  
+        </p>
+        
+<p>
+Use build prop editor app or any text editor for modifying build.prop, by opening it with any root file manager like ES File Explorer or any other app. Modify the build.prop system properties as given below:
+        </p>
+<ol>
+<li>ro.build.product</li>
+<li> ro.product.device</li>
+<li> ro.product.board</li>
+<li> ro.product.name</li>
+    <p>Change above properties values as "marlin", without quotes.</p>
+<p>
+For example:
+System Property 
+    
+ro.product.name=Redmi Note 4
+
+as 
+
+ro.product.name:marlin  
+    </p>
+    
+    <li> ro.product.manufacturer</li>
+<li> ro.product.brand</li>
+    change value to Google
+<li> ro.product.model </li>
+     change value to Pixel XL
+<p>
+Search for system property persist.camera.HAL3.enabled=1
+if it is already there, then you have to skip this step 
+    </p>
+    
+<li>Add a new System Property:
+    <p>
+        persist.camera.HAL3.enabled=1</p>
+    </li>
+            </ol>
+<p>
+    
+Now restart the device. 
+    </p>
+<p>
+You can check the device name changed to Pixel XL, by opening settings->System->About phone->Model.
+(You are greeted with a message:"Welcome to PIXEL Family", from google in your gmail)
+</p>
+<p>
+Now download the file calibration_cad.xml, link available in description. Copy the file and paste in the folder /system/etc/
+</p>
+<p>    
+we need to add a reference system property for this file in build.prop.
+Add a new prooperty in build.prop 
+</p>
+<p>    
+ro.config.calibration_cad=/system/etc/calibration_cad.xml
+</p>
+<p>    
+save the file.
+</p>
+<p>    
+Open Play store, search for ARCore app and install.
+</p>
+<p>    
+Thats it. Now your device is ready to run any ARCore app. Run any ARCore app available in playstore or Build a new app using Unity3d.
+</p>
+<p>    
+Note: ARCore performs complex computation for tracking and rendering content, performance will be depended on the CPU, memory and GPU. 
+    </p> 
+        </article>
+            
+
+
+    </div>
+	
+</div>
+
+<div id="footer" >
+	<h3>About me : </h3>
+	<p> Hi, I am IRFAN, a CSE major student, studying final year at Sri Venkateswara University College of Engineering. </p>
+
+	<p>Email: irfan.r@svuniversity.edu.in</p>
+
+	<p><a href="">Git Hub</a></p>
+	<p><a href="https://twitter.com/R_IRFAN_">Twitter</a></p>
+	
+	
+	<p><a href="https://youtube.com/channel/UCBnlwCgkbfRIWL5ReMvy9TA" >Youtube</a></p>
+
+</div>
+</body>
+</html>
