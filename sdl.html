@@ -1,0 +1,111 @@
+<html><center>
+<h1>IGDC -2018</h1>
+<h2>Programmers</h2>
+</center>
+<h3><u>SDL program:</u></h3>
+<br><br><br>
+<div id=program style="border:2px solid black;">
+<p>
+
+</p>
+#include <SDL.h>
+#include <stdio.h>
+
+#define MAX_GAME_OBJECTS 64
+
+struct game_object
+{
+    Uint8       color[4];
+    SDL_Rect    rect;
+};
+
+game_object game_objects[MAX_GAME_OBJECTS];
+int         num_game_objects = 0;
+
+void init_game_objects()
+{
+    int num = 8;
+    for (int i = 0; i < num; ++i)
+    {
+        game_object *object = &game_objects[num_game_objects++];
+
+        object->rect.w = 64;
+        object->rect.h = 64;
+
+        object->rect.x = 20 + i * 66;
+        object->rect.y = 20 + i * 66;
+
+        object->color[0] = 0;
+        object->color[1] = 0;
+        object->color[2] = 255;
+        object->color[3] = 255;
+    }
+}
+
+void render_game_objects(SDL_Renderer *renderer)
+{
+    int num = num_game_objects;
+
+    for (int i = 0; i < num; ++i)
+    {
+        SDL_SetRenderDrawColor(renderer, game_objects[i].color[0],
+            game_objects[i].color[1], game_objects[i].color[2],
+            game_objects[i].color[3]);
+        SDL_RenderFillRect(renderer, &game_objects[i].rect);
+    }
+}
+
+int main(int argc, char **argv)
+{
+    SDL_Init(SDL_INIT_VIDEO);
+
+    SDL_Window *window = SDL_CreateWindow("my game", SDL_WINDOWPOS_UNDEFINED,
+        SDL_WINDOWPOS_UNDEFINED, 800, 600, 0);
+
+    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1,
+        SDL_RENDERER_ACCELERATED);
+
+    init_game_objects();
+
+    printf("number of game objects: %d\n", num_game_objects);
+
+    bool running = true;
+
+    while (running)
+    {
+        SDL_Event event;
+
+        while (SDL_PollEvent(&event))
+        {
+            switch (event.type)
+            {
+            case SDL_QUIT:
+                running = false;
+                break;
+            case SDL_KEYDOWN:
+                if (event.key.keysym.sym == SDLK_ESCAPE)
+                    running = false;
+                break;
+            case SDL_MOUSEMOTION:
+                break;
+            }
+        }
+        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 0);
+        SDL_RenderClear(renderer);
+
+        render_game_objects(renderer);
+
+        SDL_RenderPresent(renderer);
+    }
+
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+
+    return 0;
+}
+
+
+</div>
+
+</div>
+</html>
