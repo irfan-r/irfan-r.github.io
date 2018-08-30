@@ -1,0 +1,43 @@
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+
+<div style="width:300px;height:400px;">
+<a-scene embedded>
+
+
+    <a-assets>
+      <a-asset-item id="object" src="Jar.obj"></a-asset-item>
+     
+      <a-asset-item id="material" src="Jar.mtl"></a-asset-item>
+    </a-assets>
+    
+      <a-sky color="white" ></a-sky>
+      
+      <a-box color="red" position="0 2 -5" rotation="0 45 45" scale="2 2 2">
+        <a-animation attribute="rotation"
+        dur="10000"
+        fill="forwards"
+        to="0 360 0"
+        repeat="indefinite" >
+    
+        </a-animation>
+
+      </a-box>
+      <a-text font="kelsonsans" value="Artifact Name" color="black" width="6" position="-1 .5 -3"
+      rotation="0 0 0"></a-text>
+      <a-text font="kelsonsans" value="Place: Andhra Pradesh" color="black" width="3" position="-1 .2 -3"
+      rotation="0 0 0"></a-text>
+      <a-text font="kelsonsans" value="Date:1700 AD Andhra Pradesh" color="black" width="3" position="-1 0 -3"
+      rotation="0 0 0"></a-text>
+
+</a-scene>
+
+<script>
+    var sb = document.grtelementById("sk");
+    var rt;
+    for(var i=0; i<=360; i++){
+      rt="0 "+i+" 0";         
+      sb.rotation = rt;
+    }
+    
+</script>
+

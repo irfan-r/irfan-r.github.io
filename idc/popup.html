@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<style>
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+
+.popup .popuptext::after {
+    content: "";
+    position: relative;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+</style>
+</head>
+<body style="text-align:center">
+
+
+
+<div id="main">
+        <img src="india.jpg"  usemap="#india">
+        <map name="india">
+            <area  onmouseover="showPopUp(event)"  shape="poly"  id="andhra"
+            coords="245,643, 453,551, 329,663, 327,711, 228,731, 217,701, 245,643">
+        </map>
+
+</div>
+
+<p id="para">Welcome</p>
+
+
+<div class="popup">
+       
+        <span class="popuptext" id="myPopup">  
+            
+            <img id="" src="india.jpg" height="50%" width="50%">
+           
+            <br>A Simple Popup!
+        
+        </span>
+    </div>
+
+
+    
+
+<script>
+
+function showPopUp(event) {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+    var para = document.getElementById("para");
+    var x = event.screenX+"px";
+    var y = event.screenY+"px";   
+    para.innerHTML = x + y;
+    popup.style.top = y;
+    popup.style.left =x;
+
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<html>
+        <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+<style>
+.popup {
+    width: 20%;
+    height: 20%;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 1%;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<body>
+<div class="popup" >
+    <a-scene embedded>
+
+
+<a-assets>
+  <a-asset-item id="object" src="Jar.obj"></a-asset-item>
+ 
+  <a-asset-item id="material" src="Jar.mtl"></a-asset-item>
+</a-assets>
+
+  <a-sky color="white" ></a-sky>
+  
+  <a-box color="red" position="0 2 -5" rotation="0 45 45" scale="2 2 2">
+    <a-animation attribute="rotation"
+    dur="10000"
+    fill="forwards"
+    to="0 360 0"
+    repeat="indefinite" >
+
+    </a-animation>
+
+  </a-box>
+  <a-text font="kelsonsans" value="Artifact Name" color="black" width="6" position="-1 .5 -3"
+  rotation="0 0 0"></a-text>
+  <a-text font="kelsonsans" value="Place: Andhra Pradesh" color="black" width="3" position="-1 .2 -3"
+  rotation="0 0 0"></a-text>
+  <a-text font="kelsonsans" value="Date:1700 AD Andhra Pradesh" color="black" width="3" position="-1 0 -3"
+  rotation="0 0 0"></a-text>
+
+</a-scene>
+</div>
+
+<div id="main">
+    <img src="india.jpg"  usemap="#india">
+    <map name="india">
+        <area    shape="rect"  class="state"
+        coords="244,670 334,683">
+
+        <area    shape="rect"  class="state"
+        coords="175,673 238,695">
+
+        <area    shape="rect"  class="state"
+        coords="165,789 247,812">
+
+        <area    shape="rect"  class="state"
+        coords="239,776 311,785">
+
+        <area    shape="rect"  class="state"
+        coords="271,566 333,594">
+
+        <area    shape="rect"  class="state"
+        coords="117,645 170,671">
+
+        <area    shape="rect"  class="state"
+        coords="167,519 258,553">
+
+        <area    shape="rect"  class="state"
+        coords="352,469 423,490">
+
+        <area    shape="rect"  class="state"
+        coords="430,495 483,517">
+
+        <area    shape="rect"  class="state"
+        coords="238,420 344,444">
+
+        <area    shape="rect"  class="state"
+        coords="83,430 135,447">
+
+        <area    shape="rect"  class="state"
+        coords="123,328 208,354">
+
+        <area    shape="rect"  class="state"
+        coords="291,303 390,323">
+
+        <area    shape="rect"  class="state"
+        coords="459,353 507,369">
+        
+        <area    shape="rect"  class="state"
+        coords="432,493,437">
+
+        <area    shape="rect"  class="state"
+        coords="510,414 553,459">
+
+        <area    shape="rect"  class="state"
+        coords="433,498 492,521">
+
+        <area    shape="rect"  class="state"
+        coords="579,347 638,363">
+
+        <area    shape="rect"  class="state"
+        coords="570,404 613,427">
+
+        <area    shape="rect"  class="state"
+        coords="647,409 729, 444">
+
+        <area    shape="rect"  class="state"
+        coords="673,364 744,397">
+
+        <area    shape="rect"  class="state"
+        coords="691,320 762,348">
+
+        <area    shape="rect"  class="state"
+        coords="654,240 745, 270">
+       
+        <area    shape="rect"  class="state"
+        coords="597,312 668,339">
+
+        <area    shape="rect"  class="state"
+        coords="530,294 603,310">
+
+        <area    shape="rect"  class="state"
+        coords="252,271 291, 283">
+
+        <area    shape="rect"  class="state"
+        coords="199,245 254,264">
+
+        <area    shape="rect"  class="state"
+        coords="273,215 340,242">
+
+        <area    shape="rect"  class="state"
+        coords="192,207 243,224">
+
+        <area    shape="rect"  class="state"
+        coords="231,166 286,194">
+
+        <area    shape="rect"  class="state"
+        coords="192,92 296,121">
+
+        
+    </map>
+
+</div>
+
+<script>
+
+  $(".state").mouseover(function(e){
+  $(".popup").css({left: e.pageX });
+  $(".popup").css({top: e.pageY });
+
+  $(".popup").show();
+});
+
+
+
+</script>
+</body>
+</html>
